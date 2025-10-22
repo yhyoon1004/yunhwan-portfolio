@@ -1,6 +1,22 @@
-import "@/styles/globals.css";
 import type { AppProps } from "next/app";
+import { ThemeProvider, createTheme } from '@mui/material/styles';
+import CssBaseline from '@mui/material/CssBaseline';
 
 export default function App({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />;
+    const darkTheme = createTheme({
+        colorSchemes: {
+            dark: true
+        },
+        typography: {
+            fontFamily: 'Noto Sans KR',
+        },
+    });
+
+    return(
+        <ThemeProvider theme={darkTheme}>
+            <CssBaseline />
+            <Component {...pageProps} />
+        </ThemeProvider>
+    )
+
 }
