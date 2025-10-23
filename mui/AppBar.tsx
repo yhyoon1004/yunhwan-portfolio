@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { alpha, styled } from '@mui/material/styles';
+import {alpha, styled} from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
@@ -13,8 +13,9 @@ import MenuIcon from '@mui/icons-material/Menu';
 import CloseRoundedIcon from '@mui/icons-material/CloseRounded';
 import ColorModeIconDropdown from "./ColorModeIconDropdown";
 import Avatar from '@mui/material/Avatar';
+import Link from "next/link";
 
-const StyledToolbar = styled(Toolbar)(({ theme }) => ({
+const StyledToolbar = styled(Toolbar)(({theme}) => ({
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'space-between',
@@ -33,9 +34,22 @@ const StyledToolbar = styled(Toolbar)(({ theme }) => ({
 export default function NavBar() {
     const [open, setOpen] = React.useState(false);
 
-    const toggleDrawer = (newOpen: boolean) => () => {
-        setOpen(newOpen);
-    };
+    const toggleDrawer = (newOpen: boolean) => () => setOpen(newOpen);
+
+    const MenuItems = new Map<string, string>(
+        [
+            ["커리어", "/career"],
+            ["자기소개", "/intro"],
+            ["기술", "/skill"],
+            ["자격증", "/certification"],
+        ]
+    );
+
+    const sxMenuFont = {
+        fontWeight: 700,
+        color: 'text.secondary',
+        textDecoration: 'none',
+    }
 
     return (
         <AppBar
@@ -50,50 +64,48 @@ export default function NavBar() {
         >
             <Container maxWidth="lg">
                 <StyledToolbar variant="dense" disableGutters>
-                    <Box sx={{ flexGrow: 1, display: 'flex', alignItems: 'center', px: 0 }}>
+                    {/*PC*/}
+                    <Box sx={{flexGrow: 1, display: 'flex', alignItems: 'center', px: 0}}>
 
-                        <Avatar sx={{mr:5}} alt="sung yunhwan" src="/yh-mmg.png" />
+                        <Avatar sx={{mr: 5}} alt="sung yunhwan" src="/yh-mmg.png"/>
 
-                        <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
-                            <Button variant="text" color="info" size="small">
-                                Features
-                            </Button>
-                            <Button variant="text" color="info" size="small">
-                                Testimonials
-                            </Button>
-                            <Button variant="text" color="info" size="small">
-                                Highlights
-                            </Button>
-                            <Button variant="text" color="info" size="small">
-                                Pricing
-                            </Button>
-                            <Button variant="text" color="info" size="small" sx={{ minWidth: 0 }}>
-                                FAQ
-                            </Button>
-                            <Button variant="text" color="info" size="small" sx={{ minWidth: 0 }}>
-                                Blog
-                            </Button>
+                        <Box sx={{display: {xs: 'none', md: 'flex'}}}>
+                            {
+                                Array.from(MenuItems).map(([name, path]) => (
+                                    <Button variant="text" color="info" size="large"
+                                            sx={sxMenuFont}
+                                            key={name} href={path}>
+                                        {name}
+                                    </Button>
+                                ))
+                            }
                         </Box>
                     </Box>
                     <Box
                         sx={{
-                            display: { xs: 'none', md: 'flex' },
+                            display: {xs: 'none', md: 'flex'},
                             gap: 1,
                             alignItems: 'center',
                         }}
                     >
-                        <Button color="primary" variant="text" size="small">
-                            Sign in
+                        <Button color="primary" variant="text" size="large"
+                                href={'/login'}
+                                sx={sxMenuFont}>
+                            로그인
                         </Button>
-                        <Button color="primary" variant="contained" size="small">
-                            Sign up
+                        <Button color="primary" variant="contained" size="large"
+                                href={'/signup'}
+                                sx={sxMenuFont}>
+                            회원가입
                         </Button>
-                        <ColorModeIconDropdown />
+                        <ColorModeIconDropdown/>
                     </Box>
-                    <Box sx={{ display: { xs: 'flex', md: 'none' }, gap: 1 }}>
-                        <ColorModeIconDropdown size="medium" />
+
+                    {/*모바일*/}
+                    <Box sx={{display: {xs: 'flex', md: 'none'}, gap: 1}}>
+                        <ColorModeIconDropdown size="medium"/>
                         <IconButton aria-label="Menu button" onClick={toggleDrawer(true)}>
-                            <MenuIcon />
+                            <MenuIcon/>
                         </IconButton>
                         <Drawer
                             anchor="top"
@@ -105,7 +117,7 @@ export default function NavBar() {
                                 },
                             }}
                         >
-                            <Box sx={{ p: 2, backgroundColor: 'background.default' }}>
+                            <Box sx={{p: 2, backgroundColor: 'background.default'}}>
                                 <Box
                                     sx={{
                                         display: 'flex',
@@ -113,24 +125,25 @@ export default function NavBar() {
                                     }}
                                 >
                                     <IconButton onClick={toggleDrawer(false)}>
-                                        <CloseRoundedIcon />
+                                        <CloseRoundedIcon/>
                                     </IconButton>
                                 </Box>
-                                <MenuItem>Features</MenuItem>
-                                <MenuItem>Testimonials</MenuItem>
-                                <MenuItem>Highlights</MenuItem>
-                                <MenuItem>Pricing</MenuItem>
-                                <MenuItem>FAQ</MenuItem>
-                                <MenuItem>Blog</MenuItem>
-                                <Divider sx={{ my: 3 }} />
+                                {
+                                    Array.from(MenuItems).map(([name, path]) => (
+                                        <Link key={name} href={path} style={{textDecoration: 'none'}}>
+                                            <MenuItem sx={sxMenuFont}> {name}</MenuItem>
+                                        </Link>
+                                    ))
+                                }
+                                <Divider sx={{my: 3}}/>
                                 <MenuItem>
-                                    <Button color="primary" variant="contained" fullWidth>
-                                        Sign up
+                                    <Button href={'/login'} color="primary" variant="contained" fullWidth>
+                                        로그인
                                     </Button>
                                 </MenuItem>
                                 <MenuItem>
-                                    <Button color="primary" variant="outlined" fullWidth>
-                                        Sign in
+                                    <Button href={'/signup'} color="primary" variant="outlined" fullWidth>
+                                        회원 가입
                                     </Button>
                                 </MenuItem>
                             </Box>
