@@ -2,6 +2,7 @@ import Head from "next/head";
 import {ReactNode} from "react";
 import LayoutHeader from "./LayoutHeader";
 import LayoutFooter from "./LayoutFooter";
+import {Box, Container} from "@mui/material";
 
 const Layout = ({children}: { children: ReactNode }) => {
     return (
@@ -13,7 +14,14 @@ const Layout = ({children}: { children: ReactNode }) => {
                 <link rel="icon" href="/favicon.ico"/>
             </Head>
             <LayoutHeader/>
-            {children}
+
+            <Container
+                maxWidth="lg"
+                component="main"
+                sx={{ display: 'flex', flexDirection: 'column', my: 16, gap: 4 }}
+            >
+                {children}
+            </Container>
             <LayoutFooter/>
         </>
     )

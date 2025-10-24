@@ -14,7 +14,10 @@
     "jsx": "react-jsx",
     "incremental": true,
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["./src/*"],
+      "@mui/*": ["./node_modules/@mui/*"],
+      "@components/*": ["./components/*"],
+      "@hooks/*": ["./hooks/*"],
     }
   },
   "include": [

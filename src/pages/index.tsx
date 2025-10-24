@@ -1,16 +1,14 @@
 import {Box} from "@mui/material";
-import Layout from "../../components/layout/Layout";
-import Head from "next/head";
+import Layout from "@components/layout/Layout";
+import TypingEffectTitle from "@components/TypingEffectTitle";
 
 
 export default function Home() {
     return (
         <Layout>
-            <Box>
-                <main>
+            <TypingEffectTitle title={"Web Developer YunHwan's Portfolio"}/>
 
-                </main>
-            </Box>
+
         </Layout>
     );
 }
