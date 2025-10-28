@@ -1,8 +1,30 @@
-name: yunhwan-portfolio-deploy
+name: yunhwan-portfolio-image-build
 
-#on:
-#  push:
-#    branches:
-#      - main
-#jobs:
-#  build-docker-image:
+on:
+  push:
+    branches: ["main"]
+concurrency:  #작업 중복 실행 방지
+  group: docker-build-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-22.04
+
+    steps:
+      - name: Source download on Github
+        uses: actions/checkout@v4
+
+      - name: Login to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKERHUB_ID }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      - name: Build and Push (latest)
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          file: ./docker/Dockerfile
+          push: true
+          tags: docker.io/${{ secrets.DOCKERHUB_REGISTRY }}/${{secrets.DOCKERHUB_REPOSITORY}}:latest
