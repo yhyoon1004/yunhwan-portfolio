@@ -9,7 +9,7 @@ COPY package*.json ./
 RUN npm ci
 
 COPY . .
-RUN npx --yes next@16 build
+RUN npx --yes build
 
 FROM node:20-bookworm-slim AS run
 WORKDIR /app
