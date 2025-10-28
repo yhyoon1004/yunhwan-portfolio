@@ -31,4 +31,6 @@ jobs:
           context: .
           file: ./docker/Dockerfile
           push: true
-          tags: docker.io/${{ secrets.DOCKER_HUB_REGISTRY }}/${{secrets.DOCKER_HUB_REPOSITORY}}:${{ steps.date.outputs.datetime }}
+          tags: | 
+            docker.io/${{ secrets.DOCKER_HUB_REGISTRY }}/${{secrets.DOCKER_HUB_REPOSITORY}}:latest
+            docker.io/${{ secrets.DOCKER_HUB_REGISTRY }}/${{secrets.DOCKER_HUB_REPOSITORY}}:${{ steps.date.outputs.datetime }}
