@@ -5,11 +5,11 @@ WORKDIR /app
 ENV NODE_ENV=production
 
 COPY package*.json ./
-
-RUN npm ci
+#nextjs 빌드시 dev 디펜던시도 포함시킴 -> 빌드시 필요도구가 포함안되 오류발생 가능성 있음
+RUN npm ci --include=dev
 
 COPY . .
-RUN npx --yes build
+RUN npm run build
 
 FROM node:20-bookworm-slim AS run
 WORKDIR /app
