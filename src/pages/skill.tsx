@@ -1,10 +1,11 @@
 import Layout from "../../components/layout/Layout";
+import TypingEffectTitle from "@components/common/TypingEffectTitle";
 
 export default function SkillPage() {
 
     return (
         <Layout>
-            <h1>Skill</h1>
+            <TypingEffectTitle title={"기술"}/>
         </Layout>
     )
 }
