@@ -1,7 +1,10 @@
 import type { AppProps } from "next/app";
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
-import {blue} from "@mui/material/colors";
+import '@styles/libraryCustomStyle.css'
+import 'swiper/css';
+import 'swiper/css/effect-coverflow';
+import 'swiper/css/pagination';
 
 export default function App({ Component, pageProps }: AppProps) {
     const darkTheme = createTheme({

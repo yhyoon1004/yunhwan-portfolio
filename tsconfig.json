@@ -18,6 +18,7 @@
       "@mui/*": ["./node_modules/@mui/*"],
       "@components/*": ["./components/*"],
       "@hooks/*": ["./hooks/*"],
+      "@styles/*": ["./public/styles/*"],
     }
   },
   "include": [

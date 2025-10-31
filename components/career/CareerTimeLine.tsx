@@ -38,6 +38,13 @@ const CareerTimeLine = ({props}:{props:TimeLineType[]}) => {
                       borderColor: "divider",
                       borderRadius: 4, p: 2,
                       overflow: "auto",
+                      scrollbarWidth: "none",
+                      msOverflowStyle: 'none',      // IE/Edge(구)
+                      '&::-webkit-scrollbar': {     // Chrome/Safari/Edge(Chromium)
+                          display: 'none',
+                      },
+                      // 선택: 터치 스크롤 감도 개선(모바일 사파리)
+                      WebkitOverflowScrolling: 'touch',
                   }}>
             {
                 props.map((item, index) => (

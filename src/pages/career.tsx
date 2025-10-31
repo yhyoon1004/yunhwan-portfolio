@@ -70,10 +70,10 @@ export default function CareerPage() {
     return (
         <Layout>
 
-            <TypingEffectTitle title={" ⛹🏻 개발자 커리어"} />
+            <TypingEffectTitle title={"⛹ 개발자 커리어"} />
 
 
-            <Grid container spacing={2}>
+            <Grid container spacing={2} width={"100%"}>
                 <Grow in={true} timeout={5000}>
                     <Grid size={6} height={550}>
                         <Typography variant={"h5"} component="h3" fontWeight={700}>

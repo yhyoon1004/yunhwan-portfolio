@@ -11,7 +11,7 @@ const Layout = ({children}: { children: ReactNode }) => {
                 <title>{"Web Developer YunHwan"}</title>
                 <meta name="description" content="웹 개발자"/>
                 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-                <link rel="icon" href="/favicon.ico"/>
+                <link rel="icon" href="/favicon/favicon.ico"/>
             </Head>
             <LayoutHeader/>
 

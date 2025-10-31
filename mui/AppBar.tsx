@@ -77,7 +77,7 @@ export default function NavBar() {
                                  router.push('/');
                              }}
                         >
-                            <Avatar src="/yh-mmg.png" alt="sung yunhwan"/>
+                            <Avatar src="/images/yh-mmg.png" alt="sung yunhwan"/>
                             <Typography color="textSecondary" fontWeight={700} variant="inherit" px={2}>{"개발자 윤환"}</Typography>
                         </Box>
 
