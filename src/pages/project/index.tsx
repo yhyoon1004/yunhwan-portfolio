@@ -2,20 +2,32 @@ import Layout from "@components/layout/Layout";
 import TypingEffectTitle from "@components/common/TypingEffectTitle";
 import {Box} from "@mui/material";
 import {Swiper, SwiperSlide} from "swiper/react";
-import {EffectCoverflow, Pagination} from "swiper/modules";
+import {Autoplay, EffectCoverflow, Navigation, Pagination} from "swiper/modules";
+import useDeviceByClient from "../../../hook/useDeviceByClient";
 
 export default function ProjectPage() {
+
+    const device = useDeviceByClient();
 
     return (
         <Layout>
             <TypingEffectTitle title={" 참여 프로젝트"}/>
 
-            <Box>
+            <Box sx={{height:device === "mobile" ? 300 : 500}}>
                 <Swiper
+                    modules={[Autoplay,EffectCoverflow,Pagination, Navigation]}
+                    cssMode={true}
+                    loop={true}
+                    pagination={true}
+                    navigation={true}
                     effect={'coverflow'}
-                    grabCursor={true}
                     centeredSlides={true}
-                    slidesPerView={'auto'}
+                    centeredSlidesBounds={true}
+                    slidesPerView={device === "mobile" ? 3 : 5}
+                    autoplay={{
+                        delay: 3000,
+                        disableOnInteraction: false,
+                    }}
                     coverflowEffect={{
                         rotate: 50,
                         stretch: 0,
@@ -23,8 +35,6 @@ export default function ProjectPage() {
                         modifier: 1,
                         slideShadows: true,
                     }}
-                    pagination={true}
-                    modules={[EffectCoverflow, Pagination]}
                 >
                     <SwiperSlide>
                         <div>
