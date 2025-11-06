@@ -3,6 +3,9 @@ name: yunhwan-portfolio-image-build
 on:
   push:
     branches: ["main"]
+    paths-ignore:
+      - '.github/**'
+      - '*.md'
 concurrency:  #작업 중복 실행 방지
   group: docker-build-${{ github.ref }}
   cancel-in-progress: true
