@@ -19,6 +19,7 @@
       "@components/*": ["./components/*"],
       "@hooks/*": ["./hooks/*"],
       "@styles/*": ["./public/styles/*"],
+      "@json/*": ["./json/*"],
     }
   },
   "include": [

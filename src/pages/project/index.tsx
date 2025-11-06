@@ -1,79 +1,75 @@
 import Layout from "@components/layout/Layout";
 import TypingEffectTitle from "@components/common/TypingEffectTitle";
 import {Box} from "@mui/material";
-import {Swiper, SwiperSlide} from "swiper/react";
-import {Autoplay, EffectCoverflow, Navigation, Pagination} from "swiper/modules";
 import useDeviceByClient from "../../../hook/useDeviceByClient";
+import useEmblaCarousel from "embla-carousel-react";
+import Autoplay from 'embla-carousel-autoplay'
+import {useEffect} from "react";
+import ProjectList from '@json/project-list.json'
+import {NextButton, PrevButton, usePrevNextButtons} from "@components/project/EmblaCarouselArrowButtons";
+import {DotButton, useDotButton} from "@components/project/EmblaCarouselDot";
 
 export default function ProjectPage() {
 
     const device = useDeviceByClient();
+    const [emblaRef, emblaApi] = useEmblaCarousel({loop: true, dragFree: true,},[
+        Autoplay({ playOnInit: false, delay: 3000 })
+    ])
+    const {selectedIndex, scrollSnaps, onDotButtonClick} =
+        useDotButton(emblaApi)
+    const {
+        prevBtnDisabled,
+        nextBtnDisabled,
+        onPrevButtonClick,
+        onNextButtonClick
+    } = usePrevNextButtons(emblaApi)
+
+    useEffect(() => {
+        if (emblaApi) {
+            console.log(emblaApi.slideNodes()) // Access API
+        }
+    }, [emblaApi])
 
     return (
         <Layout>
             <TypingEffectTitle title={" 참여 프로젝트"}/>
 
-            <Box sx={{height:device === "mobile" ? 300 : 500}}>
-                <Swiper
-                    modules={[Autoplay,EffectCoverflow,Pagination, Navigation]}
-                    cssMode={true}
-                    loop={true}
-                    pagination={true}
-                    navigation={true}
-                    effect={'coverflow'}
-                    centeredSlides={true}
-                    centeredSlidesBounds={true}
-                    slidesPerView={device === "mobile" ? 3 : 5}
-                    autoplay={{
-                        delay: 3000,
-                        disableOnInteraction: false,
-                    }}
-                    coverflowEffect={{
-                        rotate: 50,
-                        stretch: 0,
-                        depth: 100,
-                        modifier: 1,
-                        slideShadows: true,
-                    }}
-                >
-                    <SwiperSlide>
-                        <div>
-                            <img src="https://swiperjs.com/demos/images/nature-1.jpg" />
-
+            <Box>
+                <div className="embla" ref={emblaRef}>
+                    <div className="embla__container">
+                        {
+                            ProjectList.map((project, index) => (
+                                <div key={index} className="embla__slide">
+                                    <img src={project.thumb}
+                                         alt={project.title}
+                                         width={"100%"}
+                                    />
+                                </div>
+                            ))
+                        }
+                    </div>
+                    <div className="embla__controls">
+                        <div className="embla__buttons">
+                            <PrevButton onClick={onPrevButtonClick} disabled={prevBtnDisabled}/>
+                            <NextButton onClick={onNextButtonClick} disabled={nextBtnDisabled}/>
                         </div>
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <div>
-                            <img src="https://swiperjs.com/demos/images/nature-2.jpg" />
 
+                        <div className="embla__dots">
+                            {
+                                scrollSnaps.map((_, index) => (
+                                    <DotButton
+                                        key={index}
+                                        onClick={() => onDotButtonClick(index)}
+                                        className={'embla__dot'.concat(
+                                            index === selectedIndex ? ' embla__dot--selected' : ''
+                                        )}
+                                    />
+                                ))
+                            }
                         </div>
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <div>
-                            <img src="https://swiperjs.com/demos/images/nature-3.jpg" />
-
-                        </div>
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <div>
-                            <img src="https://swiperjs.com/demos/images/nature-4.jpg" />
-
-                        </div>
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <div>
-                            <img src="https://swiperjs.com/demos/images/nature-5.jpg" />
-
-                        </div>
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <div>
-                            <img src="https://swiperjs.com/demos/images/nature-6.jpg" />
-
-                        </div>
-                    </SwiperSlide>
-                </Swiper>
+                    </div>
+                </div>
             </Box>
         </Layout>
-    );
+        )
 }

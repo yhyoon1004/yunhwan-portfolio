@@ -2,6 +2,7 @@ import {Box} from "@mui/material";
 import Layout from "@components/layout/Layout";
 import TypingEffectTitle from "@components/common/TypingEffectTitle";
 import useDeviceByClient from "../../hook/useDeviceByClient";
+import BlurText from "@components/effect/BlurText";
 
 
 export default function Home() {
@@ -9,7 +10,14 @@ export default function Home() {
 
     return (
         <Layout>
-            <TypingEffectTitle title={"Web Developer YunHwan's Portfolio"}/>
+            <BlurText
+                text="Web Developer YunHwan's Portfolio"
+                delay={150}
+                animateBy="words"
+                direction="top"
+                // onAnimationComplete={handleAnimationComplete}
+                className="text-2xl mb-8"
+            />
 
         </Layout>
     );
