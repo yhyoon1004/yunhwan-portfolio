@@ -33,7 +33,7 @@ const CareerTimeLine = ({props}:{props:TimeLineType[]}) => {
     return (
         <Timeline position="right"
                   sx={{
-                      height: {xs: 200, md: 300, lg: 400, xl: 500, xxl: 600},
+                      // height: {xs: 200, md: 300, lg: 400, xl: 500, xxl: 600},
                       border: "1px solid",
                       borderColor: "divider",
                       borderRadius: 4, p: 2,

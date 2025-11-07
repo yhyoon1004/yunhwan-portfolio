@@ -71,14 +71,17 @@ export default function NavBar() {
                 <StyledToolbar variant="dense" disableGutters>
                     {/*PC*/}
                     <Box sx={{flexGrow: 1, display: 'flex', alignItems: 'center', px: 0}}>
-                        <Box sx={{display: 'flex', alignItems: 'center', mr:5}}
+                        <Box sx={{
+                            display: 'flex', alignItems: 'center', mr: 5,
+                            cursor:"grab"
+                        }}
                              onClick={(e) => {
                                  e.preventDefault();
                                  router.push('/');
                              }}
                         >
                             <Avatar src="/images/yh-mmg.png" alt="sung yunhwan"/>
-                            <Typography color="textSecondary" fontWeight={700} variant="inherit" px={2}>{"개발자 윤환"}</Typography>
+                            <Typography  fontWeight={700} variant="inherit" px={2}>{"개발자 윤환"}</Typography>
                         </Box>
 
 

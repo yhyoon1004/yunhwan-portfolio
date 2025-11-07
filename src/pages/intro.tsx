@@ -1,5 +1,6 @@
 import Layout from "../../components/layout/Layout";
 import BlurText from "@components/effect/text/BlurText";
+import NaverMap from "@components/map/NaverMap";
 
 export default function IntroPage() {
     return (
@@ -13,6 +14,8 @@ export default function IntroPage() {
                 direction="top"
                 className="text-2xl mb-8"
             />
+
+            <NaverMap/>
         </Layout>
     )
 }
