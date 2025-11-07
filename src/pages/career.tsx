@@ -1,9 +1,12 @@
 import dynamic from 'next/dynamic';
 import Layout from "@components/layout/Layout";
 import {Box, Grid, Grow, Typography} from "@mui/material";
+import Collapse from '@mui/material/Collapse';
 import TypingEffectTitle from "@components/common/TypingEffectTitle";
 import {TimeLineType} from "../../type/TypeCareer";
-const CareerTimeLine = dynamic(() => import('@components/career/CareerTimeLine'), { ssr: false });
+import BlurText from "@components/effect/text/BlurText";
+
+const CareerTimeLine = dynamic(() => import('@components/career/CareerTimeLine'), {ssr: false});
 
 
 export default function CareerPage() {
@@ -38,28 +41,28 @@ export default function CareerPage() {
         {
             time: "0",
             title: "kubernetes",
-        },        {
+        }, {
             time: "1",
             title: "docker , github action, gitlab",
-        },        {
+        }, {
             time: "2",
             title: "aws , cafe24",
-        },        {
+        }, {
             time: "3",
             title: "node , react , nextjs , bootstrap",
-        },        {
+        }, {
             time: "4",
             title: "subversion , git",
-        },        {
+        }, {
             time: "5",
             title: "php , laravel",
-        },        {
+        }, {
             time: "6",
             title: "QueryDSL , Spring Security , WebSocket",
-        },        {
+        }, {
             time: "7",
             title: "SpringBoot , Spring Data JPA ",
-        },        {
+        }, {
             time: "대학교",
             title: "Java , JSP , Mysql",
         },
@@ -69,28 +72,18 @@ export default function CareerPage() {
 
     return (
         <Layout>
-
-            <TypingEffectTitle title={"⛹ 개발자 커리어"} />
-
-
-            <Grid container spacing={2} width={"100%"}>
-                <Grow in={true} timeout={5000}>
-                    <Grid size={6} height={550}>
-                        <Typography variant={"h5"} component="h3" fontWeight={700}>
-                            대외 커리어
-                        </Typography>
-                        <CareerTimeLine props={socialTimeLine} />
-                    </Grid>
-                </Grow>
-                <Grow in={true} timeout={5000}>
-                    <Grid size={6} height={550}>
-                        <Typography variant={"h5"} component="h3" fontWeight={700}>
-                            기술 커리어
-                        </Typography>
-                        <CareerTimeLine props={techTimeLine} />
-                    </Grid>
-                </Grow>
-            </Grid>
+            <BlurText
+                variant={"h4"}
+                text={"커리어"}
+                fontWeight={700}
+                delay={150}
+                animateBy="words"
+                direction="top"
+                className="text-2xl mb-8"
+            />
+            <Collapse in={true}>
+                <CareerTimeLine props={socialTimeLine}/>
+            </Collapse>
         </Layout>
     )
 }

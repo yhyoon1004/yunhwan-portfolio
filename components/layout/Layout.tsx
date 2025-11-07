@@ -3,7 +3,8 @@ import {ReactNode} from "react";
 import LayoutHeader from "./LayoutHeader";
 import LayoutFooter from "./LayoutFooter";
 import {Container} from "@mui/material";
-import LiquidBackground from "@components/effect/LiquidBackground";
+import LiquidBackground from "@components/effect/background/LiquidBackground";
+import ClickSpark from "@components/effect/mouse/ClickSpark";
 
 const Layout = ({children}: { children: ReactNode }) => {
     return (
@@ -16,12 +17,13 @@ const Layout = ({children}: { children: ReactNode }) => {
             </Head>
             <LayoutHeader/>
             <div style={{
-                    position: 'fixed',
-                    inset: 0,
-                    zIndex: -1,
-                    pointerEvents: 'none',}}>
+                position: 'fixed',
+                inset: 0,
+                zIndex: -1,
+                pointerEvents: 'none',
+            }}>
                 <LiquidBackground
-                    colors={[ '#445eac', '#7ea0d1', '#aed1ff' ]}
+                    colors={['#445eac', '#7ea0d1', '#aed1ff']}
                     mouseForce={20}
                     cursorSize={100}
                     isViscous={false}
@@ -40,16 +42,27 @@ const Layout = ({children}: { children: ReactNode }) => {
                         opacity: 0.5,
                     }}
                 />
+
             </div>
-            <div style={{ position: 'relative', zIndex: 1 }}>
+
+            <div style={{position: 'relative', zIndex: 1}}>
                 <LayoutHeader/>
-                <Container
-                    maxWidth="lg"
-                    component="main"
-                    sx={{ display: 'flex', flexDirection: 'column', my: 16, gap: 4 }}
-                >
-                    {children}
-                </Container>
+
+                <ClickSpark
+                    sparkColor='#fff'
+                    sparkSize={10}
+                    sparkRadius={15}
+                    sparkCount={8}
+                    duration={400}>
+                    <Container
+                        maxWidth="lg"
+                        component="main"
+                        sx={{display: 'flex', flexDirection: 'column', my: 16, gap: 4}}
+                    >
+                        {children}
+                    </Container>
+                </ClickSpark>
+
                 <LayoutFooter/>
             </div>
         </>

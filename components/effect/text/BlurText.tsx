@@ -8,6 +8,7 @@ type BlurTextProps = {
     delay?: number;
     component?:'h1'|'h2'|'h3'|'h4'|'h5'|'div';
     variant?: TypographyVariant
+    fontWeight?: number;
     className?: string;
     animateBy?: 'words' | 'letters';
     direction?: 'top' | 'bottom';
@@ -37,6 +38,7 @@ const BlurText: React.FC<BlurTextProps> = ({
                                                text = '',
                                                delay = 200,
                                                className = '',
+                                               fontWeight = 500,
                                                component = "h2",
                                                variant = 'h2',
                                                animateBy = 'words',
@@ -99,7 +101,7 @@ const BlurText: React.FC<BlurTextProps> = ({
     const times = Array.from({length: stepCount}, (_, i) => (stepCount === 1 ? 0 : i / (stepCount - 1)));
 
     return (
-        <Typography component={component} variant={variant} ref={ref} className={className} style={{display: 'flex', flexWrap: 'wrap'}}>
+        <Typography component={component} fontWeight={fontWeight} variant={variant} ref={ref} className={className} style={{display: 'flex', flexWrap: 'wrap'}}>
             {elements.map((segment, index) => {
                 const animateKeyframes = buildKeyframes(fromSnapshot, toSnapshots);
 

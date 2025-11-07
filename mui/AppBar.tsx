@@ -114,13 +114,13 @@ export default function NavBar() {
                                 sx={sxMenuFont}>
                             로그인
                         </Button>
-                        <Button color="primary" variant="contained" size="large"
+                        <Button color="primary" variant="text" size="large"
                                 onClick={(e) => {
                                     e.preventDefault();
-                                    router.push('/signup');
+                                    router.push('https://github.com/yhyoon1004');
                                 }}
                                 sx={sxMenuFont}>
-                            회원가입
+                            GitHub
                         </Button>
                         <ColorModeIconDropdown/>
                     </Box>
@@ -167,22 +167,24 @@ export default function NavBar() {
                                 <Divider sx={{my: 3}}/>
                                 <MenuItem>
                                     <Button
+                                        color="primary"
                                         onClick={(e) => {
                                             e.preventDefault();
                                             router.push('/signup');
                                         }}
-                                        color="primary" variant="contained" fullWidth>
+                                        variant="text" fullWidth>
                                         로그인
                                     </Button>
                                 </MenuItem>
                                 <MenuItem>
                                     <Button
+                                        color="primary"
                                         onClick={(e) => {
                                             e.preventDefault();
-                                            router.push('/signup');
+                                            router.push('https://github.com/yhyoon1004');
                                         }}
-                                        color="primary" variant="outlined" fullWidth>
-                                        회원 가입
+                                        variant="text" fullWidth>
+                                        GitHub
                                     </Button>
                                 </MenuItem>
                             </Box>

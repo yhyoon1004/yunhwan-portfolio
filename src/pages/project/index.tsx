@@ -8,6 +8,7 @@ import {useEffect} from "react";
 import ProjectList from '@json/project-list.json'
 import {NextButton, PrevButton, usePrevNextButtons} from "@components/project/EmblaCarouselArrowButtons";
 import {DotButton, useDotButton} from "@components/project/EmblaCarouselDot";
+import BlurText from "@components/effect/text/BlurText";
 
 export default function ProjectPage() {
 
@@ -32,7 +33,15 @@ export default function ProjectPage() {
 
     return (
         <Layout>
-            <TypingEffectTitle title={" 참여 프로젝트"}/>
+            <BlurText
+                variant={"h4"}
+                text={"프로젝트"}
+                fontWeight={700}
+                delay={150}
+                animateBy="words"
+                direction="top"
+                className="text-2xl mb-8"
+            />
 
             <Box>
                 <div className="embla" ref={emblaRef}>

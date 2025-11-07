@@ -1,24 +1,77 @@
-import {Box} from "@mui/material";
+import {Box, Grid} from "@mui/material";
 import Layout from "@components/layout/Layout";
-import TypingEffectTitle from "@components/common/TypingEffectTitle";
 import useDeviceByClient from "../../hook/useDeviceByClient";
-import BlurText from "@components/effect/BlurText";
+import RotatingText from "@components/effect/text/RotatingText";
+import Typography from "@mui/material/Typography";
 
 
 export default function Home() {
     const deviceInfo = useDeviceByClient();
+    const textArray = [
+        "Java", "Spring", "SpringSecurity", "QueryDSL",
+        "Typescript", "React", "Nextjs",
+        "Bootstrap", "MUI",
+        "Php", "Laravel",
+        "AWS", "Azure",
+        "Kubernetes",
+    ];
 
     return (
         <Layout>
-            <BlurText
-                text="Web Developer YunHwan's Portfolio"
-                delay={150}
-                animateBy="words"
-                direction="top"
-                // onAnimationComplete={handleAnimationComplete}
-                className="text-2xl mb-8"
-            />
+            <Box height={500}
+                 display={"flex"}
+                 justifyContent={"center"}
+                 alignItems={"center"}
+                 overflow={"hidden"}
+            >
+                <Grid container spacing={{xs: 0, md: 1}}>
+                    <Grid size={{xs: 12, md: 6}}>
+                        <Box
+                            display={"flex"}
+                            justifyContent={"center"}
+                            borderRadius={4}
+                            borderColor={"#6794d5"}
+                            bgcolor={"#2a3c59"}
+                            pt={"0.25rem"}
+                            overflow={"hidden"}
+                        >
+                            <RotatingText
+                                component={"h2"}
+                                variant={"h3"}
+                                texts={textArray}
+                                fontWeight={700}
+                                style={{
+                                    fontSize: deviceInfo == "mobile" ? "0.85rem" : "1.5rem",
+                                    paddingLeft: "2rem", paddingRight: "2rem",
+                                    marginLeft: "2rem", marginRight: "2rem"
+                                }}
+                                staggerFrom={"last"}
+                                initial={{y: "100%"}}
+                                animate={{y: 0}}
+                                exit={{y: "-120%"}}
+                                staggerDuration={0.025}
+                                splitLevelClassName="overflow-hidden pb-0.5 sm:pb-1 md:pb-1"
+                                transition={{type: "spring", damping: 30, stiffness: 400}}
+                                rotationInterval={2500}
+                            />
+                        </Box>
+                    </Grid>
+                    <Grid size={{xs: 12, md: 6}}>
+                        <Typography
+                            textAlign={"center"}
+                            overflow={"visible"}
+                            noWrap={true}
+                            pt={"0.25rem"}
+                            fontWeight={700}
+                            component="h2"
+                            variant='h3'>
+                            할수있어요!
+                        </Typography>
+                    </Grid>
+                </Grid>
 
+
+            </Box>
         </Layout>
     );
 }
