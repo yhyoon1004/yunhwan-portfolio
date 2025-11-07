@@ -1,23 +1,22 @@
 import Layout from "@components/layout/Layout";
-import TypingEffectTitle from "@components/common/TypingEffectTitle";
-import {Box} from "@mui/material";
 import useDeviceByClient from "../../../hook/useDeviceByClient";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from 'embla-carousel-autoplay'
-import {useEffect} from "react";
+import {useEffect, useState} from "react";
 import ProjectList from '@json/project-list.json'
 import {NextButton, PrevButton, usePrevNextButtons} from "@components/project/EmblaCarouselArrowButtons";
 import {DotButton, useDotButton} from "@components/project/EmblaCarouselDot";
 import BlurText from "@components/effect/text/BlurText";
+import CollapseBox from "@components/common/CollapseBox";
 
 export default function ProjectPage() {
-
     const device = useDeviceByClient();
-    const [emblaRef, emblaApi] = useEmblaCarousel({loop: true, dragFree: true,},[
-        Autoplay({ playOnInit: false, delay: 3000 })
+
+    const [emblaRef, emblaApi] = useEmblaCarousel({loop: true, dragFree: true,}, [
+        Autoplay({playOnInit: false, delay: 3000})
     ])
-    const {selectedIndex, scrollSnaps, onDotButtonClick} =
-        useDotButton(emblaApi)
+
+    const {selectedIndex, scrollSnaps, onDotButtonClick} = useDotButton(emblaApi)
     const {
         prevBtnDisabled,
         nextBtnDisabled,
@@ -25,11 +24,6 @@ export default function ProjectPage() {
         onNextButtonClick
     } = usePrevNextButtons(emblaApi)
 
-    useEffect(() => {
-        if (emblaApi) {
-            console.log(emblaApi.slideNodes()) // Access API
-        }
-    }, [emblaApi])
 
     return (
         <Layout>
@@ -43,7 +37,7 @@ export default function ProjectPage() {
                 className="text-2xl mb-8"
             />
 
-            <Box>
+            <CollapseBox>
                 <div className="embla" ref={emblaRef}>
                     <div className="embla__container">
                         {
@@ -78,7 +72,7 @@ export default function ProjectPage() {
                         </div>
                     </div>
                 </div>
-            </Box>
+            </CollapseBox>
         </Layout>
-        )
+    )
 }

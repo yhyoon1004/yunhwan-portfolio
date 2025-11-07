@@ -1,6 +1,7 @@
 import Layout from "../../components/layout/Layout";
-import TypingEffectTitle from "@components/common/TypingEffectTitle";
 import BlurText from "@components/effect/text/BlurText";
+import CollapseBox from "@components/common/CollapseBox";
+import { SkillTitle } from "@components/skill/SkillTitle";
 
 export default function SkillPage() {
 
@@ -15,6 +16,10 @@ export default function SkillPage() {
                 direction="top"
                 className="text-2xl mb-8"
             />
+
+            <CollapseBox>
+                <SkillTitle/>
+            </CollapseBox>
         </Layout>
     )
 }

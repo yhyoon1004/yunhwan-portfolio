@@ -7,8 +7,9 @@ import '@styles/rotating-text.css'
 
 export default function App({Component, pageProps}: AppProps) {
     const darkTheme = createTheme({
+        defaultColorScheme: 'dark',
         colorSchemes: {
-            dark: true
+            dark: true,
         },
         typography: {
             fontFamily: '"M PLUS Rounded 1c", sans-serif',
@@ -16,7 +17,7 @@ export default function App({Component, pageProps}: AppProps) {
     });
 
     return (
-        <ThemeProvider theme={darkTheme}>
+        <ThemeProvider theme={darkTheme} >
             <CssBaseline/>
             <Component {...pageProps} />
         </ThemeProvider>
