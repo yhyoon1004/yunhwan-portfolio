@@ -3,8 +3,7 @@
 import { useEffect, useRef, useState } from 'react';
 
 declare global { interface Window { naver: any } }
-const NCP_CLIENT_ID = process.env.naverClientId!;
-
+const NCP_CLIENT_ID = process.env.NEXT_PUBLIC_NAVER_CLIENT_ID??"";
 export default function NaverMap() {
     const containerRef = useRef<HTMLDivElement>(null);
     const [ready, setReady] = useState(false);
