@@ -12,7 +12,7 @@ export default function NaverMap() {
     useEffect(() => {
         if (window.naver?.maps) { setReady(true); return; }
         const script = document.createElement('script');
-        script.src = `https://oapi.map.naver.com/openapi/v3/maps.js?ncpClientId=${NCP_CLIENT_ID}&submodules=geocoder`;
+        script.src = `https://oapi.map.naver.com/openapi/v3/maps.js?ncpKeyId=${NCP_CLIENT_ID}&submodules=geocoder`;
         script.async = true;
         script.onload = () => setReady(true);
         document.head.appendChild(script);
