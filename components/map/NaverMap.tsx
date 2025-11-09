@@ -33,10 +33,15 @@ export default function NaverMap() {
         script.async = true;
         document.head.appendChild(script);
 
+        (window as any).navermap_authFailure = () => {
+            console.error('❌ Naver Map 인증 실패 - 키나 도메인 등록 확인');
+        };
+
         return () => {
             script.remove();
         };
     }, []);
+
 
     const init = () => {
         const { naver } = window;
