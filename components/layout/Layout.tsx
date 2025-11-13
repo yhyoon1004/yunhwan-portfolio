@@ -12,11 +12,13 @@ const Layout = ({children}: { children: ReactNode }) => {
         <>
             <Head>
                 <title>{"Web Developer YunHwan"}</title>
-                <meta name="description" content="웹 개발자"/>
+                <meta name="description" content="웹 개발자 윤환"/>
                 <meta name="viewport" content="width=device-width, initial-scale=1"/>
                 <link rel="icon" href="/favicon/favicon.ico"/>
                 <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png"/>
                 <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png"/>
+                <link rel="apple-touch-icon" type="image/png" sizes="192x192" href="/favicon/favicon-192x192.png"/>
+                <link rel="apple-touch-icon" type="image/png" sizes="512x512" href="/favicon/favicon-512x512.png"/>
                 <link rel="apple-touch-icon" href="/favicon/apple-touch-icon.png"/>
                 <link rel="manifest" href="/manifest.json"/>
                 <meta name="theme-color" content="#ffffff"/>
@@ -30,7 +32,7 @@ const Layout = ({children}: { children: ReactNode }) => {
                 <Container maxWidth="lg" component="main"
                            sx={{display: 'flex', flexDirection: 'column', my: 16, gap: 4}}>
                     <LiquidBackground
-                        style={{position: 'fixed', inset: 0, zIndex: -1, opacity: 0.5,pointerEvents: 'none'}}
+                        style={{position: 'fixed', inset: 0, zIndex: -1, opacity: 0.5, pointerEvents: 'none'}}
                         colors={['#445eac', '#7ea0d1', '#aed1ff']}
                         mouseForce={20}
                         cursorSize={100}
@@ -46,11 +48,9 @@ const Layout = ({children}: { children: ReactNode }) => {
                         takeoverDuration={0.25}
                         autoResumeDelay={300}
                         autoRampDuration={0.6}/>
-                    <Box sx={{height: '100%'}}>
-                        <LayoutHeader/>
-                        {children}
-                        <LayoutFooter/>
-                    </Box>
+                    <LayoutHeader/>
+                    {children}
+                    <LayoutFooter/>
                 </Container>
             </ClickSpark>
         </>
