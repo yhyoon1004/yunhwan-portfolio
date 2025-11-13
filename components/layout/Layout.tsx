@@ -14,12 +14,12 @@ const Layout = ({children}: { children: ReactNode }) => {
                 <title>{"Web Developer YunHwan"}</title>
                 <meta name="description" content="웹 개발자 윤환"/>
                 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-                <link rel="icon" href="/favicon/favicon.ico"/>
-                <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png"/>
-                <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png"/>
-                <link rel="apple-touch-icon" type="image/png" sizes="192x192" href="/favicon/favicon-192x192.png"/>
-                <link rel="apple-touch-icon" type="image/png" sizes="512x512" href="/favicon/favicon-512x512.png"/>
-                <link rel="apple-touch-icon" href="/favicon/apple-touch-icon.png"/>
+                <link rel="icon" href="/favicon.ico"/>
+                <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"/>
+                <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"/>
+                <link rel="apple-touch-icon" type="image/png" sizes="192x192" href="/favicon-192x192.png"/>
+                <link rel="apple-touch-icon" type="image/png" sizes="512x512" href="/favicon-512x512.png"/>
+                <link rel="apple-touch-icon" href="/apple-touch-icon.png"/>
                 <link rel="manifest" href="/manifest.json"/>
                 <meta name="theme-color" content="#ffffff"/>
             </Head>
