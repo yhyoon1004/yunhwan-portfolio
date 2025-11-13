@@ -2,6 +2,9 @@
 
 import { useEffect, useRef } from 'react';
 import Script from 'next/script';
+import {AccountBox} from "@mui/icons-material";
+import Box from "@mui/material/Box";
+import {Paper} from "@mui/material";
 
 declare global {
     interface Window {
@@ -24,9 +27,10 @@ export default function NaverMap() {
         initializedRef.current = true;
 
         mapRef.current = new window.naver.maps.Map(containerRef.current, {
-            center: new window.naver.maps.LatLng(37.3595704, 127.105399),
+            center: new window.naver.maps.LatLng(37.578886, 127.003041),
             zoom: 10,
         });
+
 
         // 첫 렌더 후 자동 리사이즈 (렌더 타이밍 보정)
         setTimeout(() => {
@@ -61,9 +65,12 @@ export default function NaverMap() {
                 onError={(e) => console.error('❌ 네이버 지도 스크립트 로드 실패', e)}
             />
 
-            <div
+            <Box
+                component={Paper}
                 ref={containerRef}
                 style={{
+                    backgroundColor: '#7ea0d1',
+                    padding: '16px',
                     width: '100%',
                     height: '400px',
                     borderRadius: '8px',

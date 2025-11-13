@@ -11,6 +11,9 @@ export default function App({Component, pageProps}: AppProps) {
         <AppTheme>
             <CssBaseline/>
             <Component {...pageProps} />
+            <style jsx global>{`
+                html, body {color-scheme: dark;}
+            `}</style>
         </AppTheme>
     )
 

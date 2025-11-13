@@ -112,10 +112,10 @@ export default function NavBar() {
                         <Button color="primary" variant="text" size="large"
                                 onClick={(e) => {
                                     e.preventDefault();
-                                    router.push('/login');
+                                    router.push('https://renteasy.co.kr/');
                                 }}
                                 sx={sxMenuFont}>
-                            로그인
+                            렌팅
                         </Button>
                         <Button color="primary" variant="text" size="large"
                                 onClick={(e) => {
@@ -173,10 +173,10 @@ export default function NavBar() {
                                         color="primary"
                                         onClick={(e) => {
                                             e.preventDefault();
-                                            router.push('/signup');
+                                            router.push('https://renteasy.co.kr/');
                                         }}
                                         variant="text" fullWidth>
-                                        로그인
+                                        렌팅
                                     </Button>
                                 </MenuItem>
                                 <MenuItem>
