@@ -5,7 +5,6 @@ import LayoutFooter from "./LayoutFooter";
 import {Container} from "@mui/material";
 import LiquidBackground from "@components/effect/background/LiquidBackground";
 import ClickSpark from "@components/effect/mouse/ClickSpark";
-import Box from "@mui/material/Box";
 
 const Layout = ({children}: { children: ReactNode }) => {
     return (
@@ -23,35 +22,37 @@ const Layout = ({children}: { children: ReactNode }) => {
                 <link rel="manifest" href="/manifest.json"/>
                 <meta name="theme-color" content="#ffffff"/>
             </Head>
-
             <ClickSpark sparkColor='#fff'
                         sparkSize={10}
                         sparkRadius={15}
                         sparkCount={8}
                         duration={400}>
-                <Container maxWidth="lg" component="main"
-                           sx={{display: 'flex', flexDirection: 'column', my: 16, gap: 4}}>
+                <LayoutHeader/>
+                <Container maxWidth="lg" component="main" sx={{display: 'flex', flexDirection: 'column', my: 16, gap: 4}}>
                     <LiquidBackground
-                        style={{position: 'fixed', inset: 0, zIndex: -1, opacity: 0.5, pointerEvents: 'none'}}
+                        style={{position: 'absolute', inset: 0, zIndex: -1, opacity: 0.5, pointerEvents: 'none'}}
                         colors={['#445eac', '#7ea0d1', '#aed1ff']}
                         mouseForce={20}
                         cursorSize={100}
+                        resolution={0.5}
+                        dt={0.014}
+                        BFECC={true}
                         isViscous={false}
                         viscous={30}
                         iterationsViscous={32}
                         iterationsPoisson={32}
-                        resolution={0.5}
-                        isBounce={true}
+                        isBounce={false}
                         autoDemo={true}
                         autoSpeed={0.5}
                         autoIntensity={2.2}
                         takeoverDuration={0.25}
-                        autoResumeDelay={300}
-                        autoRampDuration={0.6}/>
-                    <LayoutHeader/>
+                        autoResumeDelay={1000}
+                        autoRampDuration={0.6}
+                        className=""
+                    />
                     {children}
-                    <LayoutFooter/>
                 </Container>
+                <LayoutFooter/>
             </ClickSpark>
         </>
     )

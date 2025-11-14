@@ -12,9 +12,9 @@ import MenuItem from '@mui/material/MenuItem';
 import Drawer from '@mui/material/Drawer';
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseRoundedIcon from '@mui/icons-material/CloseRounded';
-import ColorModeIconDropdown from "./ColorModeIconDropdown";
 import Avatar from '@mui/material/Avatar';
 import {useRouter} from "next/router";
+import ColorModeToggle from "@custom-mui/ColorModeToggle";
 
 const StyledToolbar = styled(Toolbar)(({theme}) => ({
     display: 'flex',
@@ -52,8 +52,9 @@ export default function NavBar() {
 
     const sxMenuFont = {
         fontWeight: 700,
-        color: 'text.secondary',
+        color: 'text.primary',
         textDecoration: 'none',
+        lineHeight: 1,
     }
 
     return (
@@ -62,18 +63,20 @@ export default function NavBar() {
             enableColorOnDark
             sx={{
                 boxShadow: 0,
-                bgcolor: 'transparent',
+                backgroundColor: 'transparent',
                 backgroundImage: 'none',
                 mt: 'calc(var(--template-frame-height, 0px) + 28px)',
+                zIndex: 2,
+                opacity: 0.8
             }}
         >
-            <Container maxWidth="lg">
+            <Container sx={{backgroundColor: 'transparent',}} maxWidth="lg">
                 <StyledToolbar variant="dense" disableGutters>
                     {/*PC*/}
                     <Box sx={{flexGrow: 1, display: 'flex', alignItems: 'center', px: 0}}>
                         <Box sx={{
                             display: 'flex', alignItems: 'center', mr: 5,
-                            cursor:"grab"
+                            cursor: "grab"
                         }}
                              onClick={(e) => {
                                  e.preventDefault();
@@ -81,16 +84,15 @@ export default function NavBar() {
                              }}
                         >
                             <Avatar src="/images/yh-mmg.png" alt="sung yunhwan"/>
-                            <Typography  fontWeight={700} variant="inherit" px={2}>{"개발자 윤환"}</Typography>
+                            <Typography sx={{...sxMenuFont,mt:0.5}} px={2}>{"개발자 윤환"}</Typography>
                         </Box>
 
 
                         <Box sx={{display: {xs: 'none', md: 'flex'}}}>
                             {
                                 Array.from(MenuItems).map(([name, path]) => (
-                                    <Button variant="text" color="info" size="large"
-                                            sx={sxMenuFont}
-                                            key={name} href={path}
+                                    <Button variant="text" color="info" size="large" sx={sxMenuFont} key={name}
+                                            href={path}
                                             onClick={(e) => {
                                                 e.preventDefault();
                                                 router.push(path);
@@ -125,12 +127,12 @@ export default function NavBar() {
                                 sx={sxMenuFont}>
                             GitHub
                         </Button>
-                        <ColorModeIconDropdown/>
+                        <ColorModeToggle/>
                     </Box>
 
                     {/*모바일*/}
                     <Box sx={{display: {xs: 'flex', md: 'none'}, gap: 1}}>
-                        <ColorModeIconDropdown size="medium"/>
+                        <ColorModeToggle/>
                         <IconButton aria-label="Menu button" onClick={toggleDrawer(true)}>
                             <MenuIcon/>
                         </IconButton>

@@ -20,6 +20,7 @@
       "@hooks/*": ["./hooks/*"],
       "@styles/*": ["./public/styles/*"],
       "@json/*": ["./json/*"],
+      "@custom-mui/*": ["./mui-custom/*"]
     }
   },
   "include": [

@@ -1,10 +1,10 @@
-import NavBar from "../../mui/AppBar";
+import NavBar from "../../mui-custom/navigation/AppBar";
 
 export default function LayoutHeader() {
 
     return (
-        <header>
+        <>
             <NavBar/>
-        </header>
+        </>
     )
 }

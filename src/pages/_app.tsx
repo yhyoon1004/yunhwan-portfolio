@@ -3,18 +3,15 @@ import CssBaseline from '@mui/material/CssBaseline';
 import '@styles/library-custom.css'
 import '@styles/liquid-background.css'
 import '@styles/rotating-text.css'
-import AppTheme from "../../mui/AppTheme";
+import {ThemeProvider} from "@mui/material/styles";
+import {theme} from "../../mui-custom/theme";
 
 export default function App({Component, pageProps}: AppProps) {
-
     return (
-        <AppTheme>
+        <ThemeProvider theme={theme} defaultMode={"dark"} disableTransitionOnChange>
             <CssBaseline/>
             <Component {...pageProps} />
-            <style jsx global>{`
-                html, body {color-scheme: dark;}
-            `}</style>
-        </AppTheme>
+        </ThemeProvider>
     )
 
 }

@@ -153,9 +153,10 @@ const ClickSpark: React.FC<ClickSparkProps> = ({
     return (
         <div
             style={{
-                width: '100%',
-                height: '100%',
-                position: 'relative'
+                width: '100vw',
+                height: '100vh',
+                position: 'absolute',
+                // backgroundColor:'transparent'
             }}
             onClick={handleClick}
         >
@@ -164,7 +165,8 @@ const ClickSpark: React.FC<ClickSparkProps> = ({
                 style={{
                     position: 'absolute',
                     inset: 0,
-                    pointerEvents: 'none'
+                    pointerEvents: 'none',
+                    zIndex:100
                 }}
             />
             {children}
