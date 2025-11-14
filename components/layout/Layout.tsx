@@ -48,7 +48,6 @@ const Layout = ({children}: { children: ReactNode }) => {
                         takeoverDuration={0.25}
                         autoResumeDelay={1000}
                         autoRampDuration={0.6}
-                        className=""
                     />
                     {children}
                 </Container>

@@ -155,7 +155,7 @@ const ClickSpark: React.FC<ClickSparkProps> = ({
             style={{
                 width: '100vw',
                 height: '100vh',
-                position: 'absolute',
+                position: 'fixed',
                 // backgroundColor:'transparent'
             }}
             onClick={handleClick}
