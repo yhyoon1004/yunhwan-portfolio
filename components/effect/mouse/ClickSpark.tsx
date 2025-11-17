@@ -151,15 +151,7 @@ const ClickSpark: React.FC<ClickSparkProps> = ({
     };
 
     return (
-        <div
-            style={{
-                width: '100vw',
-                height: '100vh',
-                position: 'fixed',
-                // backgroundColor:'transparent'
-            }}
-            onClick={handleClick}
-        >
+        <div onClick={handleClick}>
             <canvas
                 ref={canvasRef}
                 style={{

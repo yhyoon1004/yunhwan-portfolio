@@ -1,3 +1,4 @@
+'use client'
 import * as React from 'react';
 import {alpha, styled} from '@mui/material/styles';
 import Box from '@mui/material/Box';
@@ -32,7 +33,7 @@ const StyledToolbar = styled(Toolbar)(({theme}) => ({
     padding: '8px 12px',
 }));
 
-export default function NavBar() {
+export default function GlobalNavigationBar() {
     const router = useRouter();
     const [open, setOpen] = React.useState(false);
 
@@ -42,11 +43,11 @@ export default function NavBar() {
 
     const MenuItems = new Map<string, string>(
         [
-            ["프로젝트", "/project"],
-            ["커리어", "/career"],
-            ["자기소개", "/intro"],
-            ["기술", "/skill"],
-            ["자격증", "/certification"],
+            // ["프로젝트", "/project"],
+            // ["커리어", "/career"],
+            // ["자기소개", "/intro"],
+            // ["기술", "/skill"],
+            // ["자격증", "/certification"],
         ]
     );
 
@@ -59,15 +60,15 @@ export default function NavBar() {
 
     return (
         <AppBar
-            position="fixed"
+            id={"nav-bar"}
+            position={"sticky"}
             enableColorOnDark
             sx={{
                 boxShadow: 0,
                 backgroundColor: 'transparent',
                 backgroundImage: 'none',
-                mt: 'calc(var(--template-frame-height, 0px) + 28px)',
+                my: 'calc(var(--template-frame-height, 0px) + 28px)',
                 zIndex: 2,
-                opacity: 0.8
             }}
         >
             <Container sx={{backgroundColor: 'transparent',}} maxWidth="lg">
@@ -84,7 +85,7 @@ export default function NavBar() {
                              }}
                         >
                             <Avatar src="/images/yh-mmg.png" alt="sung yunhwan"/>
-                            <Typography sx={{...sxMenuFont,mt:0.5}} px={2}>{"개발자 윤환"}</Typography>
+                            <Typography sx={{...sxMenuFont, mt: 0.5}} px={2}>{"개발자 윤환"}</Typography>
                         </Box>
 
 
