@@ -15,7 +15,7 @@ export default function IntroPage() {
             {/*    className="text-2xl mb-8"*/}
             {/*/>*/}
             <section style={{ height: 400 }}>
-                <NaverMap />
+                {/*<NaverMap />*/}
             </section>
         </Layout>
     )

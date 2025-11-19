@@ -43,7 +43,7 @@ export default function GlobalNavigationBar() {
 
     const MenuItems = new Map<string, string>(
         [
-            // ["프로젝트", "/project"],
+            ["프로젝트", "/project"],
             // ["커리어", "/career"],
             // ["자기소개", "/intro"],
             // ["기술", "/skill"],
@@ -61,13 +61,13 @@ export default function GlobalNavigationBar() {
     return (
         <AppBar
             id={"nav-bar"}
-            position={"sticky"}
+            position={"static"}
             enableColorOnDark
             sx={{
                 boxShadow: 0,
                 backgroundColor: 'transparent',
                 backgroundImage: 'none',
-                my: 'calc(var(--template-frame-height, 0px) + 28px)',
+                py: 2,
                 zIndex: 2,
             }}
         >

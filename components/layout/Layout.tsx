@@ -6,6 +6,7 @@ import ClickSpark from "@components/effect/mouse/ClickSpark";
 import GlobalNavigationBar from "@custom-mui/navigation/AppBar";
 
 const Layout = ({children}: { children: ReactNode }) => {
+
     return (
         <>
             <Head>
@@ -26,9 +27,6 @@ const Layout = ({children}: { children: ReactNode }) => {
                         sparkRadius={15}
                         sparkCount={8}
                         duration={400}>
-
-                <GlobalNavigationBar/>
-
                 <LiquidBackground
                     style={{position: 'fixed', inset: 0, zIndex: -1, opacity: 0.5, pointerEvents: 'none'}}
                     colors={['#445eac', '#7ea0d1', '#aed1ff']}
@@ -50,22 +48,28 @@ const Layout = ({children}: { children: ReactNode }) => {
                     autoRampDuration={0.6}
                 />
 
+                {/*header*/}
+                <GlobalNavigationBar/>
+
+                {/*main*/}
                 <Container maxWidth="lg" component="main"
                            sx={{
                                position: 'relative',
-                               display: 'flex', flexDirection: 'column',
                                overflowY: 'auto',
                                scrollbarWidth: "none",
                                msOverflowStyle: 'none',      // IE/Edge(구)
                                '&::-webkit-scrollbar': {     // Chrome/Safari/Edge(Chromium)
                                    display: 'none',
                                },
-                               // 선택: 터치 스크롤 감도 개선(모바일 사파리)
-                               WebkitOverflowScrolling: 'touch',
+                               WebkitOverflowScrolling: 'touch',// 선택: 터치 스크롤 감도 개선(모바일 사파리)
                            }}>
                     {children}
                 </Container>
-                <footer/>
+
+                {/*footer*/}
+                <footer>
+
+                </footer>
             </ClickSpark>
         </>
     )
