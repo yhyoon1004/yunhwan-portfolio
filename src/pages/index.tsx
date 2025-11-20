@@ -1,8 +1,6 @@
-import Layout from "@components/layout/Layout";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
-import {motion, useTransform} from "motion/react";
-import {useScroll} from "framer-motion";
+import {motion} from "motion/react";
 import {Grid} from "@mui/material";
 
 const MotionBox = motion.create(Box);
@@ -13,22 +11,23 @@ const MotionGrid = motion.create(Grid);
 export default function Home() {
 
     return (
-        <Layout>
+        <>
             <Box id="hero-section"
                  sx={{
-                     paddingTop: {xs: "20px", md: "40px"}, px: 2,
+                     pt: 2, px: 2,
                      minHeight: "80vh",
                  }}>
                 <Box id="hero-title" paddingBottom={2}>
                     {
-                        ["안녕하세요,", "Web Developer 윤환의 사이트입니다!"].map((text, index) => (
+                        ["화면부터 배포•운영까지,"," 웹 서비스 개발자 윤환입니다."].map((text, index) => (
                             <MotionTypo key={"hero-text-" + index}
                                         sx={{
+                                            display: 'inline',
                                             fontSize: {xs: "2rem", md: '2.5rem'},
-                                            lineHeight: {xs: 0.9, md: 1},
+                                            lineHeight: {xs: 0.9, md: 1.1},
                                             fontWeight: 700
                                         }}
-                                        initial={{opacity: 0, y: 40}}
+                                        initial={{opacity: 0, y: 20}}
                                         animate={{opacity: 1, y: 0}}
                                         transition={{duration: 1, delay: !index ? 0.3 : 0.5}}
                             >
@@ -40,7 +39,7 @@ export default function Home() {
 
                 <Grid id={"hero-describe"} container spacing={2}>
                     <MotionGrid
-                        size={12}
+                        size={{xs: 12, md: 7}}
                         initial={{opacity: 0, x: -40}}
                         animate={{opacity: 1, x: 0}}
                         transition={{duration: 1, delay: 0.5}}
@@ -49,7 +48,7 @@ export default function Home() {
                         <Box component={"img"}
                              src={"/images/yh-dark-bg.jpg"}
                              sx={{
-                                 width: "100%", minHeight: {xs: 250, md: 550},
+                                 width: "100%", minHeight: {xs: 250, md: 450},
                                  borderRadius: 4,
                                  opacity: 0.85,
                                  backdropFilter: 'blur(10px)',
@@ -57,35 +56,39 @@ export default function Home() {
                              }}
                              draggable={false}
                         />
+
+                    </MotionGrid>
+                    <MotionGrid size={{xs: 12, md: 5}} sx={{position: "relative"}}>
                         <MotionTypo
                             initial={{opacity: 0, x: 50}}
                             animate={{opacity: 1, x: 0}}
                             transition={{duration: 1, delay: 0.5}}
                             sx={{
-                                position: {xs: "relative", md: "absolute"},
-                                top: {xs: 'none', md: "10%"}, right: {xs: 'none', md: "5%"},
                                 color: "text.secondary", textShadow: "0 0 2px rgba(0, 0, 0, 0.5)",
                                 wordBreak: "keep-all",
                                 fontWeight: 700,
-                                lineHeight: 1.4,
-                                fontSize: {xs: "1rem", md: "1.5rem"},
-                                textAlign: {xs: "center", md: "right"},
-                                borderRight: {xs: "none", md: "2px solid"},
+                                lineHeight: 1.5,
+                                fontSize: {xs: "1rem", md: "1.4rem"},
+                                textAlign: {xs: "center", md: "left"},
+                                borderLeft: {xs: "none", md: "2px solid"},
                                 borderColor: "#979797",
-                                pr: {xs: 0, md: 1},
+                                pl: {xs: 0, md: 1},
                             }}
                         >
-                            아이디어를 서비스로 만들어냅니다 <br/>
-                            프로그램 소스코드를 만들고 관리합니다 <br/>
-                            프로그램을 가상화하여 배포까지 자동화시킵니다 <br/>
+                            구현 위주 프론트엔드 개발<br/>
+                            구조와 데이터 흐름 위주 백엔드 개발<br/>
+                            Docker와 Git을 이용한 빌드·배포 파이프 구성<br/>
+                            가상 호스팅 환경에 웹 서비스를 운영 경험 <br/>
+                            K8S 와 UI에 집중하며 역량을 넓혀가고 있습니다. <br/>
                         </MotionTypo>
+
                     </MotionGrid>
                 </Grid>
             </Box>
 
-            <MotionBox id="feature-section" sx={{padding: "10vh 0"}}>
+            <MotionBox id="feature-section" sx={{padding: "10vh", height: "100vh"}}>
 
             </MotionBox>
-        </Layout>
+        </>
     );
 }

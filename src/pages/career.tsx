@@ -1,5 +1,4 @@
 import dynamic from 'next/dynamic';
-import Layout from "@components/layout/Layout";
 import {TimeLineType} from "../../type/TypeCareer";
 import BlurText from "@components/effect/text/BlurText";
 import CollapseBox from "@components/common/CollapseBox";
@@ -68,7 +67,7 @@ const techTimeLine: TimeLineType[] = [
 export default function CareerPage() {
 
     return (
-        <Layout>
+        <>
             <BlurText
                 variant={"h4"}
                 text={"커리어"}
@@ -81,6 +80,6 @@ export default function CareerPage() {
             <CollapseBox>
                 <CareerTimeLine props={socialTimeLine}/>
             </CollapseBox>
-        </Layout>
+        </>
     )
 }

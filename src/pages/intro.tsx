@@ -1,10 +1,6 @@
-import Layout from "../../components/layout/Layout";
-import BlurText from "@components/effect/text/BlurText";
-import NaverMap from "@components/map/NaverMap";
-
 export default function IntroPage() {
     return (
-        <Layout>
+        <>
             {/*<BlurText*/}
             {/*    variant={"h4"}*/}
             {/*    text={"자기소개"}*/}
@@ -17,6 +13,6 @@ export default function IntroPage() {
             <section style={{ height: 400 }}>
                 {/*<NaverMap />*/}
             </section>
-        </Layout>
+        </>
     )
 }

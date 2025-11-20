@@ -2,11 +2,12 @@ import Head from "next/head";
 import {ReactNode} from "react";
 import {Container} from "@mui/material";
 import LiquidBackground from "@components/effect/background/LiquidBackground";
-import ClickSpark from "@components/effect/mouse/ClickSpark";
+import {ClickSparkOfMemo} from "@components/effect/mouse/ClickSpark";
 import GlobalNavigationBar from "@custom-mui/navigation/AppBar";
+import {useColorScheme} from "@mui/material/styles";
 
 const Layout = ({children}: { children: ReactNode }) => {
-
+    const {mode} = useColorScheme();
     return (
         <>
             <Head>
@@ -22,7 +23,7 @@ const Layout = ({children}: { children: ReactNode }) => {
                 <link rel="manifest" href="/manifest.json"/>
                 <meta name="theme-color" content="#ffffff"/>
             </Head>
-            <ClickSpark sparkColor='#fff'
+            <ClickSparkOfMemo sparkColor={mode=='dark' ? '#ffffff' : '#000000'}
                         sparkSize={10}
                         sparkRadius={15}
                         sparkCount={8}
@@ -67,10 +68,18 @@ const Layout = ({children}: { children: ReactNode }) => {
                 </Container>
 
                 {/*footer*/}
-                <footer>
-
-                </footer>
-            </ClickSpark>
+                {/*<Container maxWidth="lg"*/}
+                {/*           component="footer"*/}
+                {/*           sx={{*/}
+                {/*               borderTop: `1px solid grey`,*/}
+                {/*               mt: 8,*/}
+                {/*               py: {xs: 3, sm: 4},*/}
+                {/*           }}>*/}
+                {/*    <Typography variant="body2" color="text.secondary">*/}
+                {/*        © 2025 YunHwan. All rights reserved.*/}
+                {/*    </Typography>*/}
+                {/*</Container>*/}
+            </ClickSparkOfMemo>
         </>
     )
 }

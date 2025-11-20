@@ -1,12 +1,11 @@
-import Layout from "../../components/layout/Layout";
 import BlurText from "@components/effect/text/BlurText";
 import CollapseBox from "@components/common/CollapseBox";
-import { SkillTitle } from "@components/skill/SkillTitle";
+import {SkillTitle} from "@components/skill/SkillTitle";
 
 export default function SkillPage() {
 
     return (
-        <Layout>
+        <>
             <BlurText
                 variant={"h4"}
                 text={"기술"}
@@ -20,6 +19,6 @@ export default function SkillPage() {
             <CollapseBox>
                 <SkillTitle/>
             </CollapseBox>
-        </Layout>
+        </>
     )
 }

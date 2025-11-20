@@ -64,6 +64,7 @@ export default function GlobalNavigationBar() {
             position={"static"}
             enableColorOnDark
             sx={{
+                minHeight: { xs: 56, sm: 64, lg: 72 },
                 boxShadow: 0,
                 backgroundColor: 'transparent',
                 backgroundImage: 'none',
@@ -77,7 +78,7 @@ export default function GlobalNavigationBar() {
                     <Box sx={{flexGrow: 1, display: 'flex', alignItems: 'center', px: 0}}>
                         <Box sx={{
                             display: 'flex', alignItems: 'center', mr: 5,
-                            cursor: "grab"
+                            cursor: "grab",
                         }}
                              onClick={(e) => {
                                  e.preventDefault();
@@ -85,7 +86,13 @@ export default function GlobalNavigationBar() {
                              }}
                         >
                             <Avatar src="/images/yh-mmg.png" alt="sung yunhwan"/>
-                            <Typography sx={{...sxMenuFont, mt: 0.5}} px={2}>{"개발자 윤환"}</Typography>
+                            <Typography sx={{
+                                ml: 1,pt: 0.2,
+                                fontWeight: 700,
+                                fontSize: '1.1rem',
+                                color: 'text.primary',
+                                textDecoration: 'none',
+                            }} >{"개발자 윤환"}</Typography>
                         </Box>
 
 

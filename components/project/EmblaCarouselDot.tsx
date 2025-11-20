@@ -1,10 +1,8 @@
-import React, {
-    ComponentPropsWithRef,
-    useCallback,
-    useEffect,
-    useState
-} from 'react'
-import { EmblaCarouselType } from 'embla-carousel'
+import React, {useCallback, useEffect, useState} from 'react'
+import {EmblaCarouselType} from 'embla-carousel'
+import {ButtonProps} from "@mui/material/Button/Button";
+import IconButton from "@mui/material/IconButton";
+import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord';
 
 type UseDotButtonType = {
     selectedIndex: number
@@ -49,14 +47,13 @@ export const useDotButton = (
     }
 }
 
-type PropType = ComponentPropsWithRef<'button'>
-
-export const DotButton: React.FC<PropType> = (props) => {
-    const { children, ...restProps } = props
+const DotButton = (props:ButtonProps) => {
 
     return (
-        <button type="button" {...restProps}>
-            {children}
-        </button>
+        <IconButton {...props}>
+            <FiberManualRecordIcon color={props.color}/>
+        </IconButton>
     )
 }
+
+export const DotButtonOfMemo = React.memo(DotButton);
