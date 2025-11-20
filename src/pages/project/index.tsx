@@ -8,7 +8,7 @@ import {motion} from "motion/react";
 import Box from "@mui/material/Box";
 import {useCallback, useRef} from "react";
 import {blue} from "@mui/material/colors";
-import {NeonBoxOfMemo} from "@components/common/AiButton";
+import {NeonBoxOfMemo} from "@components/common/NeonBox";
 
 const MotionBox = motion.create(Box);
 
