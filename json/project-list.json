@@ -2,51 +2,51 @@
   {
     "title": "크립토허브",
     "description": "암호화페 관련 특별 사이트",
-    "thumb": "/images/project/thumb/cryptohub.png"
+    "thumb": "/images/project/thumb/cryptohub.webp"
   },
   {
     "title": "수능 특별 페이지",
     "description": "2025년 수능 특별 페이지",
-    "thumb": "/images/project/thumb/csat.png"
+    "thumb": "/images/project/thumb/csat.webp"
   },
   {
     "title": "영문 사이트",
     "description": "뉴스1 영문 페이지",
-    "thumb": "/images/project/thumb/english.png"
+    "thumb": "/images/project/thumb/english.webp"
   },
   {
     "title": "해피펫 사이트",
     "description": "반려동물 특별 사이트",
-    "thumb": "/images/project/thumb/happypet.png"
+    "thumb": "/images/project/thumb/happypet.webp"
   },
   {
     "title": "핫포토 페이지",
     "description": "일간 핫포토 및 일별 특별 사진 페이지",
-    "thumb": "/images/project/thumb/hotphoto.png"
+    "thumb": "/images/project/thumb/hotphoto.webp"
   },
   {
     "title": "올림픽 특별 페이지",
     "description": "하계올림픽 특별 연재 페이지",
-    "thumb": "/images/project/thumb/olympic.png"
+    "thumb": "/images/project/thumb/olympic.webp"
   },
   {
     "title": "오피니언 페이지",
     "description": "칼럼니스트 칼럼 연재 페이지",
-    "thumb": "/images/project/thumb/opinion.png"
+    "thumb": "/images/project/thumb/opinion.webp"
   },
   {
     "title": "연재물 페이지",
     "description": "특집 기사 묶음 페이지",
-    "thumb": "/images/project/thumb/series.png"
+    "thumb": "/images/project/thumb/series.webp"
   },
   {
     "title": "선거 특별 컴포넌트",
     "description": "22대 대선 특별 UI 컴포넌트",
-    "thumb": "/images/project/thumb/vote1.png"
+    "thumb": "/images/project/thumb/vote1.webp"
   },
   {
     "title": "선거 특별 컴포넌트",
     "description": "22대 대선 특별 UI 컴포넌트",
-    "thumb": "/images/project/thumb/vote2.png"
+    "thumb": "/images/project/thumb/vote2.webp"
   }
 ]
