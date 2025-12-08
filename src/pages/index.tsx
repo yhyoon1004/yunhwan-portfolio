@@ -46,7 +46,7 @@ export default function Home() {
                         sx={{position: "relative"}}
                     >
                         <Box component={"img"}
-                             src={"/images/yh-dark-bg.jpg"}
+                             src={"/images/yh-dark-bg.webp"}
                              sx={{
                                  width: "100%", minHeight: {xs: 250, md: 450},
                                  borderRadius: 4,
