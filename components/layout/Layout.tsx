@@ -5,6 +5,7 @@ import LiquidBackground from "@components/effect/background/LiquidBackground";
 import {ClickSparkOfMemo} from "@components/effect/mouse/ClickSpark";
 import GlobalNavigationBar from "@custom-mui/navigation/AppBar";
 import {useColorScheme} from "@mui/material/styles";
+import Script from "next/script";
 
 const Layout = ({children}: { children: ReactNode }) => {
     const {mode} = useColorScheme();
@@ -22,12 +23,21 @@ const Layout = ({children}: { children: ReactNode }) => {
                 <link rel="apple-touch-icon" type="image/png" sizes="512x512" href="/favicon-512x512.png"/>
                 <link rel="manifest" href="/manifest.json"/>
                 <meta name="theme-color" content="#ffffff"/>
+                <Script id={"ga4-init"} strategy="afterInteractive">
+                    {`<!-- Google Tag Manager -->
+                    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+                        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+                        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+                        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+                    })(window,document,'script','dataLayer','GTM-P9MG2BRW');</script>
+                    <!-- End Google Tag Manager -->`}
+                </Script>
             </Head>
-            <ClickSparkOfMemo sparkColor={mode=='dark' ? '#ffffff' : '#000000'}
-                        sparkSize={10}
-                        sparkRadius={15}
-                        sparkCount={8}
-                        duration={400}>
+            <ClickSparkOfMemo sparkColor={mode == 'dark' ? '#ffffff' : '#000000'}
+                              sparkSize={10}
+                              sparkRadius={15}
+                              sparkCount={8}
+                              duration={400}>
                 <LiquidBackground
                     style={{position: 'fixed', inset: 0, zIndex: -1, opacity: 0.5, pointerEvents: 'none'}}
                     colors={['#445eac', '#7ea0d1', '#aed1ff']}
