@@ -16,6 +16,7 @@ import CloseRoundedIcon from '@mui/icons-material/CloseRounded';
 import Avatar from '@mui/material/Avatar';
 import {useRouter} from "next/router";
 import ColorModeToggle from "@custom-mui/ColorModeToggle";
+import WeatherWidget from "@components/common/WeatherWidget";
 
 const StyledToolbar = styled(Toolbar)(({theme}) => ({
     display: 'flex',
@@ -135,6 +136,7 @@ export default function GlobalNavigationBar() {
                                 sx={sxMenuFont}>
                             GitHub
                         </Button>
+                        <WeatherWidget />
                         <ColorModeToggle/>
                     </Box>
 
