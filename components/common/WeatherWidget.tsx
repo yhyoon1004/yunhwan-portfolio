@@ -48,12 +48,12 @@ const iconMap: Record<string, string> = {
 const WeatherWidget = () => {
     const [weatherData, setWeatherData] = useState<WeatherItem[]>([]);
     const [emblaRef] = useEmblaCarousel({loop: true, axis: 'y'}, [
-        Autoplay({delay: 2000, stopOnInteraction: true})
+        Autoplay({delay: 2500, stopOnInteraction: true})
     ]);
 
     const fetchWeatherAPI = async () => {
         try {
-            const res = await fetch("https://api.yunhwan.kr/weather/now");
+            const res = await fetch("https://open.yunhwan.kr/weather/now");
             if (!res.ok) throw new Error("Failed to fetch weather data");
             const data = await res.json();
             setWeatherData(data);
